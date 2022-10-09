@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using WebApplication1.Data.Base;
 
 namespace WebApplication1.Models
 {
-    public class Album
+    public class Album : IEntityBase
     {
         [Key]
         public int Id { get; set; }

@@ -3,7 +3,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Data.Services
 {
-    public interface IArtistsService : IEntityBaseRepository<Artist>
+    public interface IAlbumsService : IEntityBaseRepository<Album>
     {
     }
 }

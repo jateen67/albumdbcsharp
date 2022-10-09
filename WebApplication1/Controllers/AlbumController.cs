@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Data.Services;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -9,11 +10,11 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class AlbumController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IAlbumsService _service;
 
-        public AlbumController(AppDbContext context)
+        public AlbumController(IAlbumsService service)
         {
-            _context = context;
+            _service = service;
         }
 
         [HttpGet]
@@ -21,7 +22,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                return _context.Albums.Include(c => c.Artist).ToList();
+                return await _service.GetAll(n => n.Artist);
             }
             catch (Exception)
             {
@@ -32,7 +33,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Album>> GetAlbum(int id)
         {
-            var album = await _context.Albums.FindAsync(id);
+            var album = await _service.GetById(id, n => n.Artist);
 
             if (album == null)
             {
@@ -45,22 +46,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public async Task<ActionResult<Album>> CreateAlbum(Album album)
         {
-            Artist newArtist = _context.Artists.Find(album.ArtistId);
-
-            var newAlbum = new Album()
+            if (!ModelState.IsValid)
             {
-                Title = album.Title,
-                Description = album.Description,
-                Duration = album.Duration,
-                Date = album.Date,
-                Cover = album.Cover,
-                ArtistId = album.ArtistId,
-                Artist = newArtist
-            };
+                return BadRequest("Not a valid model");
+            }
 
-            await _context.Albums.AddAsync(newAlbum);
-            await _context.SaveChangesAsync();
-
+            await _service.Add(album);
             return CreatedAtAction(nameof(GetAlbum), new { id = album.Id }, album);
         }
 
@@ -68,44 +59,26 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult<Album>> UpdateAlbum(int id, Album album)
         {
             if (!ModelState.IsValid)
+            {
                 return BadRequest("Not a valid model");
-
-            var existingAlbum = _context.Albums.Where(a => a.Id == id).FirstOrDefault<Album>();
-            Artist newArtist = _context.Artists.Find(album.ArtistId);
-            
-            if (existingAlbum != null)
-            {
-                existingAlbum.Title = album.Title;
-                existingAlbum.Description = album.Description;
-                existingAlbum.Duration = album.Duration;
-                existingAlbum.Date = album.Date;
-                existingAlbum.Cover = album.Cover;
-                existingAlbum.ArtistId = album.ArtistId;
-                existingAlbum.Artist = newArtist;
-                await _context.SaveChangesAsync();
-            }
-            else
-            {
-                return NotFound();
             }
 
+            await _service.Update(id, album);
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Album>> DeleteAlbum(int id)
         {
-            var album = await _context.Albums.FindAsync(id);
+            var album = await _service.GetById(id);
 
             if (album == null)
             {
                 return NotFound();
             }
 
-            _context.Albums.Remove(album);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            await _service.Delete(id);
+            return Ok();
         }
     }
 }

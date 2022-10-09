@@ -18,6 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 );
 
 builder.Services.AddScoped<IArtistsService, ArtistsService>();
+builder.Services.AddScoped<IAlbumsService, AlbumsService>();
 
 var app = builder.Build();
 

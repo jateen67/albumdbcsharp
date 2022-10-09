@@ -9,7 +9,7 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class ArtistController : Controller
     {
-        private readonly IArtistsService _service;
+        private readonly IArtistsService _service;  
 
         public ArtistController(IArtistsService service)
         {
@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                return await _service.GetAll();
+                return await _service.GetAll(n => n.Albums);
             }
             catch (Exception)
             {
@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Artist>> GetArtist(int id)
         {
-            var artist = await _service.GetById(id);
+            var artist = await _service.GetById(id, n => n.Albums);
 
             if (artist == null)
             {

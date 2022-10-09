@@ -51,7 +51,7 @@ namespace WebApplication1.Controllers
             }
 
             await _service.Add(artist);
-            return CreatedAtAction(nameof(GetArtist), new { id = artist.ArtistId}, artist);
+            return CreatedAtAction(nameof(GetArtist), new { id = artist.Id}, artist);
         }
 
         [HttpPut("{id}")]

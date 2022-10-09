@@ -5,7 +5,7 @@ namespace WebApplication1.Models
     public class Artist
     {
         [Key]
-        public int ArtistId { get; set; }
+        public int Id { get; set; }
         
         public string Name { get; set; }
 

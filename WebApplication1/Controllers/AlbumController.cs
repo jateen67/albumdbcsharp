@@ -61,7 +61,7 @@ namespace WebApplication1.Controllers
             await _context.Albums.AddAsync(newAlbum);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAlbum), new { id = album.AlbumId }, album);
+            return CreatedAtAction(nameof(GetAlbum), new { id = album.Id }, album);
         }
 
         [HttpPut("{id}")]
@@ -70,7 +70,7 @@ namespace WebApplication1.Controllers
             if (!ModelState.IsValid)
                 return BadRequest("Not a valid model");
 
-            var existingAlbum = _context.Albums.Where(a => a.AlbumId == id).FirstOrDefault<Album>();
+            var existingAlbum = _context.Albums.Where(a => a.Id == id).FirstOrDefault<Album>();
             Artist newArtist = _context.Artists.Find(album.ArtistId);
             
             if (existingAlbum != null)

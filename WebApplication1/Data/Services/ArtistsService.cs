@@ -34,7 +34,7 @@ namespace WebApplication1.Data.Services
 
         public async Task<Artist> GetById(int id)
         {
-            return await _context.Artists.Where(ar => ar.ArtistId == id).Include(a => a.Albums).SingleOrDefaultAsync<Artist>();
+            return await _context.Artists.Where(ar => ar.Id == id).Include(a => a.Albums).SingleOrDefaultAsync<Artist>();
         }
 
         public async Task<Artist> Update(int id, Artist artist)

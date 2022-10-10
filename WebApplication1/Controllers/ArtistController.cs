@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data.Services;
 using WebApplication1.Dtos;
 using WebApplication1.Models;
@@ -11,6 +10,7 @@ namespace WebApplication1.Controllers
     [Route("api/[controller]")]
     public class ArtistController : Controller
     {
+
         private readonly IArtistsService _service;
         private readonly IMapper _mapper;
 

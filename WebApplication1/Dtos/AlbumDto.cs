@@ -1,8 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Text.Json.Serialization;
-using WebApplication1.Models;
-
-namespace WebApplication1.Dtos
+﻿namespace WebApplication1.Dtos
 {
     public class AlbumDto
     {

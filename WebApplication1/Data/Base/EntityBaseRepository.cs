@@ -1,9 +1,6 @@
-﻿using Castle.DynamicProxy.Generators.Emitters.SimpleAST;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
-using WebApplication1.Models;
 
 namespace WebApplication1.Data.Base
 {

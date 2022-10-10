@@ -29,7 +29,7 @@ namespace WebApplication1.Data.Base
             await _context.SaveChangesAsync();
         }
 
-        public async Task<ActionResult<IEnumerable<T>>> GetAll(params Expression<Func<T, object>>[] includes)
+        public async Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = _context.Set<T>();
             query = includes.Aggregate(query, (current, includes) => current.Include(includes));
@@ -43,7 +43,7 @@ namespace WebApplication1.Data.Base
             return await query.SingleOrDefaultAsync();
         }
 
-        public async Task Update(int id, T entity)
+        public async Task Update(T entity)
         {
             EntityEntry entry = _context.Entry<T>(entity);
             entry.State = EntityState.Modified;

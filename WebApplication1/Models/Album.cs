@@ -10,18 +10,25 @@ namespace WebApplication1.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public string Title { get; set; }
-        
+
+        [Required]
         public string Description { get; set; }
 
+        [Required]
         public int Duration { get; set; }
 
+        [Required]
         public DateTime Date { get; set; }
 
+        [Required]
         public string Cover { get; set; }
 
+        [Required]
         [ForeignKey("ArtistId")]
         public int ArtistId { get; set; }
+
         [JsonIgnore]
         public Artist? Artist { get; set; }
 

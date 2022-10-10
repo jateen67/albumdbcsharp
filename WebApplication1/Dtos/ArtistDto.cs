@@ -1,17 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WebApplication1.Data.Base;
+﻿using WebApplication1.Models;
 
-namespace WebApplication1.Models
+namespace WebApplication1.Dtos
 {
-    public class Artist : IEntityBase
+    public class ArtistDto
     {
-        [Key]
         public int Id { get; set; }
 
-        [Required]
         public string Name { get; set; }
 
-        [Required]
         public string Bio { get; set; }
 
         public List<Album> Albums { get; set; } = new List<Album>();

@@ -5,6 +5,17 @@ using WebApplication1.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+    options.AddPolicy("CORSPolicy",
+        builder =>
+        {
+            builder
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .WithOrigins("http://localhost:3000");
+        })
+);
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -20,6 +31,7 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 builder.Services.AddScoped<IArtistsService, ArtistsService>();
 builder.Services.AddScoped<IAlbumsService, AlbumsService>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +40,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CORSPolicy");
 
 AppDbInitializer.Seed(app);
 

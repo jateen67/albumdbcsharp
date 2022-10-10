@@ -1,0 +1,72 @@
+@import "../src/stylesheet.css";
+
+body,
+option {
+    background-image: linear-gradient( to right, hsl(200, 100%, 8%), hsl(200, 100%, 16%) );
+    font-family: "Gotham Rounded", "sans-serif";
+}
+
+.cover {
+    height: 300px;
+    width: auto;
+}
+
+.img-preview {
+    height: 200px;
+    width: auto;
+}
+
+.text-light,
+.navbar-brand {
+    color: hsl(200, 100%, 83%) !important;
+}
+
+.nav-link {
+    color: grey;
+}
+
+    .nav-link:hover {
+        color: hsl(200, 100%, 83%);
+    }
+
+.text-dark {
+    color: hsl(200, 100%, 8%);
+}
+
+.btn-primary {
+    background-color: hsl(200, 100%, 83%);
+    border-color: hsl(200, 100%, 83%);
+}
+
+    .btn-primary:hover {
+        background-color: hsl(200, 100%, 50%);
+        border-color: hsl(200, 100%, 50%);
+    }
+
+.btn-danger {
+    background-color: hsl(0, 100%, 83%);
+    border-color: hsl(0, 100%, 83%);
+}
+
+    .btn-danger:hover {
+        background-color: hsl(0, 100%, 50%);
+        border-color: hsl(0, 100%, 50%);
+    }
+
+.form-control {
+    background-color: hsl(200, 100%, 31%) !important;
+    border-color: hsl(200, 100%, 50%);
+}
+
+.navbar-brand {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.d-flex {
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+}

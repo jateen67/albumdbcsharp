@@ -53,7 +53,6 @@ namespace WebApplication1.Controllers
 
             var album = _mapper.Map<Album>(albumDto);
             var albumReadDto = _mapper.Map<AlbumDto>(album);
-
             await _service.Add(album);
             return CreatedAtAction(nameof(GetAlbum), new { id = albumReadDto.Id }, albumReadDto);
         }

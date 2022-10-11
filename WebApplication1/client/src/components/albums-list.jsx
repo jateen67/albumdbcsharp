@@ -1,13 +1,15 @@
 ﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Constants from "../utilities/Constants";
 
 export default function AlbumsList() {
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
+    const url = Constants.BASE_URL
 
     useEffect(() => {
-        axios.get("https://localhost:7150/api/album").then((res) => {
+        axios.get(`${url}/api/album`).then((res) => {
             for (let i = 0; i < res.data.length; i++) {
                 setData((data) => [
                     ...data,

@@ -11,9 +11,11 @@ namespace WebApplication1.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(40)]
         public string Title { get; set; }
 
         [Required]
+        [MaxLength(300)]
         public string Description { get; set; }
 
         [Required]

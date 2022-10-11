@@ -1,11 +1,13 @@
 ﻿import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Constants from "../utilities/Constants";
 
 export default function AddArtist() {
     const [name, setName] = useState("");
     const [bio, setBio] = useState("");
     const navigate = useNavigate();
+    const url = Constants.BASE_URL;
 
     const changeName = (e) => {
         setName(e.target.value);
@@ -18,7 +20,7 @@ export default function AddArtist() {
     const addArtistClicked = (e) => {
         e.preventDefault();
         const artistAdded = { name, bio };
-        axios.post("https://localhost:7150/api/artist", artistAdded).then((res) => {
+        axios.post(`${url}/api/artist`, artistAdded).then((res) => {
             console.log("added artist");
         });
         navigate("/artists");

@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Constants from "../utilities/Constants";
 
 export default function AddAlbum() {
     const [title, setTitle] = useState("");
@@ -13,9 +14,10 @@ export default function AddAlbum() {
     const [cover, setCover] = useState("");
     const [artists, setArtists] = useState([]);
     const navigate = useNavigate();
+    const url = Constants.BASE_URL;
 
     useEffect(() => {
-        axios.get("https://localhost:7150/api/artist").then((res) => {
+        axios.get(`${url}/api/artist`).then((res) => {
             if (res.data) {
                 setArtist(res.data[0].id);
                 setArtists(

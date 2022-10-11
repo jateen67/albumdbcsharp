@@ -3,6 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Constants from "../utilities/Constants";
 
 export default function EditAlbum() {
     const [title, setTitle] = useState("");
@@ -14,10 +15,11 @@ export default function EditAlbum() {
     const [artists, setArtists] = useState([]);
     const params = useParams();
     const navigate = useNavigate();
+    const url = Constants.BASE_URL;
 
     useEffect(() => {
         axios
-            .get(`https://localhost:7150/api/album/${params.id}`)
+            .get(`${url}/api/album/${params.id}`)
             .then((res) => {
                 setTitle(res.data.title);
                 setDescription(res.data.description);
@@ -29,7 +31,7 @@ export default function EditAlbum() {
     }, []);
 
     useEffect(() => {
-        axios.get("https://localhost:7150/api/artist").then((res) => {
+        axios.get(`${url}/api/artist`).then((res) => {
             if (res.data) {
                 setArtists(
                     res.data.map((artist) => [artist.name, artist.id])

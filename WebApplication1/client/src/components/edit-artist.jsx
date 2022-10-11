@@ -1,12 +1,24 @@
 ﻿import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Constants from "../utilities/Constants";
 
 export default function EditArtist() {
     const [name, setName] = useState("");
     const [bio, setBio] = useState("");
     const params = useParams();
     const navigate = useNavigate();
+    const url = Constants.BASE_URL;
+
+    useEffect(() => {
+        axios
+            .get(`${url}/api/artist/${params.id}`)
+            .then((res) => {
+                setName(res.data.name);
+                setBio(res.data.bio);
+            })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const changeName = (e) => {
         setName(e.target.value);
@@ -21,20 +33,10 @@ export default function EditArtist() {
         const id = params.id
         const artist = { id, name, bio };
         axios
-            .put(`https://localhost:7150/api/artist/${params.id}`, artist)
+            .put(`${url}/api/artist/${params.id}`, artist)
             .then(() => console.log("artist edited"));
         navigate(`/viewartist/${id}`);
     };
-
-    useEffect(() => {
-        axios
-            .get(`https://localhost:7150/api/artist/${params.id}`)
-            .then((res) => {
-                setName(res.data.name);
-                setBio(res.data.bio);
-            })
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     return (
         <div className="container">

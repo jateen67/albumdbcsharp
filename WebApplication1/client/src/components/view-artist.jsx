@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Constants from "../utilities/Constants";
 
 export default function AlbumsList() {
     const [data, setData] = useState([]);
@@ -8,9 +9,10 @@ export default function AlbumsList() {
     const [search, setSearch] = useState("");
     const params = useParams();
     const navigate = useNavigate();
+    const url = Constants.BASE_URL;
 
     useEffect(() => {
-        axios.get(`https://localhost:7150/api/artist/${params.id}`).then((res) => {
+        axios.get(`${url}/api/artist/${params.id}`).then((res) => {
             setData([res.data]);
             setAlbums(res.data.albums)
         });
@@ -19,7 +21,7 @@ export default function AlbumsList() {
 
     const deleteArtist = () => {
         axios
-            .delete(`https://localhost:7150/api/artist/${params.id}`)
+            .delete(`${url}/api/artist/${params.id}`)
             .then(() => console.log("deleted artist"));
 
         navigate("/");

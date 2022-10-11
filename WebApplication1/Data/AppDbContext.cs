@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
+using MusicDatabase.Models;
 
-namespace WebApplication1.Data
+namespace MusicDatabase.Data
 {
     public class AppDbContext : DbContext
     {

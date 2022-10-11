@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Data.Base
+﻿namespace MusicDatabase.Data.Base
 {
     public interface IEntityBase
     {

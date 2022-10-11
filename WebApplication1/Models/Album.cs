@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
-using WebApplication1.Data.Base;
+using MusicDatabase.Data.Base;
 
-namespace WebApplication1.Models
+namespace MusicDatabase.Models
 {
     public class Album : IEntityBase
     {

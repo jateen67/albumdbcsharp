@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using WebApplication1.Dtos;
-using WebApplication1.Models;
+using MusicDatabase.Dtos;
+using MusicDatabase.Models;
 
-namespace WebApplication1.Helpers
+namespace MusicDatabase.Helpers
 {
     public class AutoMapperProfiles : Profile
     {

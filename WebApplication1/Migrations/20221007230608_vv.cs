@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace WebApplication1.Migrations
+namespace MusicDatabase.Migrations
 {
     public partial class vv : Migration
     {

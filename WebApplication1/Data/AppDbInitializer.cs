@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Data
+﻿namespace MusicDatabase.Data
 {
     public class AppDbInitializer
     {

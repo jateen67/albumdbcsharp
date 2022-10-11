@@ -1,7 +1,7 @@
-﻿using WebApplication1.Data.Base;
-using WebApplication1.Models;
+﻿using MusicDatabase.Data.Base;
+using MusicDatabase.Models;
 
-namespace WebApplication1.Data.Services
+namespace MusicDatabase.Data.Services
 {
     public interface IAlbumsService : IEntityBaseRepository<Album>
     {

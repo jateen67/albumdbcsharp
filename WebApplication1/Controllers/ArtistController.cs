@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication1.Data.Services;
-using WebApplication1.Dtos;
-using WebApplication1.Models;
+using MusicDatabase.Data.Services;
+using MusicDatabase.Dtos;
+using MusicDatabase.Models;
 
-namespace WebApplication1.Controllers
+namespace MusicDatabase.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using WebApplication1.Data.Base;
+using MusicDatabase.Data.Base;
 
-namespace WebApplication1.Models
+namespace MusicDatabase.Models
 {
     public class Artist : IEntityBase
     {

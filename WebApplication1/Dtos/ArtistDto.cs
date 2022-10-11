@@ -1,6 +1,6 @@
-﻿using WebApplication1.Models;
+﻿using MusicDatabase.Models;
 
-namespace WebApplication1.Dtos
+namespace MusicDatabase.Dtos
 {
     public class ArtistDto
     {

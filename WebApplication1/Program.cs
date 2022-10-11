@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Data;
-using WebApplication1.Data.Services;
-using WebApplication1.Helpers;
+using MusicDatabase.Data;
+using MusicDatabase.Data.Services;
+using MusicDatabase.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 

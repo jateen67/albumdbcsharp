@@ -1,7 +1,6 @@
 # Music Album Database
 
 ## Website: https://jatins-album-db.herokuapp.com/
-
 (If the link doesn't work it's because Heroku got rid of its free deployment tier...)
 
 This website stores music albums alongside their respective artist, description, duration, and date of release.

@@ -1,11 +1,10 @@
 # Music Album Database
 
-## Website: https://jatins-album-db.herokuapp.com/
-(If the link doesn't work it's because Heroku got rid of its free deployment tier...)
+## Website: https://albumdatabasefrontend.azurewebsites.net/
 
 This website stores music albums alongside their respective artist, description, duration, and date of release.
 
-Tech used: HTML, CSS, JavaScript, React.js, C#, ASP.NET, SQL Server (SSMS), Bootstrap, deployed using Heroku
+Tech used: HTML, CSS, JavaScript, React.js, C#, ASP.NET, SQL Server (SSMS), Bootstrap, deployed using Microsoft Azure
 
 ## The purpose of this project was to learn and practice concepts related to:
 - Building a REST API

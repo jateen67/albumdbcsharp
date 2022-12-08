@@ -2,7 +2,7 @@
 
 ## Website: https://albumdatabasefrontend.azurewebsites.net/
 
-Note: Initial database queries on first load are slow when using Azure's free tier, so the website might not work for ~20 seconds :(
+**Note:** Initial database queries on first load are slow when using Azure's free tier, so the website might not work for ~20 seconds :(
 
 This website stores music albums alongside their respective artist, description, duration, and date of release.
 

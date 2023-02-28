@@ -20,7 +20,6 @@ Tech used: HTML, CSS, JavaScript, React.js, C#, ASP.NET, SQL Server (SSMS), Boot
 - Data Transfer Objects (DTOs) and AutoMapper
 - RESTful API guidelines
 - HTTP (GET, POST, PUT, PATCH, DELETE, status codes)
-- Unit testing (Jest, xUnit)
 - Testing API endpoints (SwaggerUI/Postman)
 
 ## Sample images:

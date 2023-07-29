@@ -1,8 +1,7 @@
 # Music Album Database
 
-## Website: https://albumdatabasefrontend.azurewebsites.net/
-
-**Note:** If the website doesn't work anymore it's because I ran out of Azure credits :(
+Website: https://albumdatabasefrontend.azurewebsites.net/
+**Note:** If it doesn't work anymore it's because I ran out of Azure credits :(
 
 This website stores music albums alongside their respective artist, description, duration, and date of release.
 
